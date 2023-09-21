@@ -5,8 +5,6 @@ import locale
 from datetime import datetime, timedelta
 
 TIMEOUT = 10
-LogInUrl = "https://passport.ustc.edu.cn"
-YoungUrl = "https://young.ustc.edu.cn/login/sc-wisdom-group-learning/myproject/release"
 
 
 class Config:
@@ -46,9 +44,12 @@ class Config:
         self.password = personal['密码']
 
     def __get_rely(self):
-        self.driver_path = self.content['配置信息']['driver位置']
+        config_info = self.content['配置信息']
+        self.driver_path = config_info['driver位置']
         assert os.path.exists(
             self.driver_path), "文件'{}'不存在".format(self.driver_path)
+        self.login_url = config_info['一卡通登陆网址']
+        self.project_create_url = config_info['项目创建网址']
 
     def __get_activity(self):
         project = self.content['项目信息']

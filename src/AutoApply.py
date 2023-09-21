@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException, ElementClickInterceptedException
 
 
-from Config import TIMEOUT, Config, YoungUrl, LogInUrl
+from Config import Config, TIMEOUT
 
 
 class AutoApply:
@@ -42,12 +42,12 @@ class AutoApply:
 
     def run(self):
         print('连接网页...')
-        self.driver.get(YoungUrl)
+        self.driver.get(self.config.project_create_url)
         self.login()
         # 等待页面加载
         self.until(
             EC.presence_of_all_elements_located((By.XPATH, "//span[text()='欢迎您，{}']".format(self.config.fixed['联系人']))))
-        self.make_sure_at(YoungUrl)
+        self.make_sure_at(self.config.project_create_url)
         self.access_parent()
         for i in range(self.config.batch_size):
             day_delta = self.config.day_delta * i
@@ -137,7 +137,7 @@ class AutoApply:
                 break
 
     def login(self):
-        if self.driver.current_url.startswith(LogInUrl):
+        if self.driver.current_url.startswith(self.config.login_url):
             print('登录中...')
             username = self.driver.find_element(By.ID, 'username')
             password = self.driver.find_element(By.ID, 'password')
