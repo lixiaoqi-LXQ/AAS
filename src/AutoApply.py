@@ -20,7 +20,7 @@ class AutoApply:
         self.config = config
         service = webdriver.ChromeService(executable_path=config.driver_path)
         self.driver = webdriver.Chrome(service=service)
-        self.driver.set_window_size(1024, 768)
+        self.driver.maximize_window()
         self.wait = WebDriverWait(self.driver, TIMEOUT)
 
     def __get_calender_date_input(self):
