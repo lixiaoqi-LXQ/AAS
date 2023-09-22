@@ -13,7 +13,7 @@ class Config:
 
     def __init__(self, config_path):
         locale.setlocale(locale.LC_ALL, 'zh_CN.UTF-8')
-        with open(config_path) as config_file:
+        with open(config_path, encoding='utf-8') as config_file:
             self.content = json.load(config_file)
         self.__get_personal()
         self.__get_rely()
@@ -80,9 +80,3 @@ class Config:
         self.batch_size = batch_info['批量创建数量']
         self.day_delta = timedelta(days=batch_info['间隔天数'])
         self.start_date = Config.str2date(batch_info['开始日期'])
-        #  self.activity_name = fixed['名称']
-        #  self.admin_name = fixed['联系人']
-        #  self.phone_number = fixed['联系方式']
-        #  self.time_spent = fixed['有效时长']
-        #  self.xueshi = fixed['学时']
-        #  self.img_dir = fixed['图片文件夹']
