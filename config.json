@@ -4,7 +4,9 @@
         "密码": ""
     },
     "配置信息": {
-        "driver位置": "web driver的位置，如果使用相对路径，注意要相对main.py运行时的路径"
+        "driver位置": "web driver的位置，如果使用相对路径，注意要相对main.py运行时的路径",
+        "一卡通登陆网址": "https://passport.ustc.edu.cn",
+        "项目创建网址": "https://young.ustc.edu.cn/login/sc-wisdom-group-learning/myproject/release"
     },
     "项目信息": {
         "母项目名称": "",
