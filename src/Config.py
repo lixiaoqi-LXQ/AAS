@@ -2,6 +2,7 @@ import json
 import os
 import itertools
 import locale
+from random import shuffle
 from datetime import datetime, timedelta
 
 TIMEOUT = 10
@@ -64,6 +65,7 @@ class Config:
             image_dir), "图片目录{}不存在".format(image_dir)
         images = [os.path.abspath(os.path.join(image_dir, img))
                   for img in os.listdir(image_dir)]
+        shuffle(images)
         self.images = itertools.cycle(images)
         #
         self.name_fmt = self.fixed['名称格式']
