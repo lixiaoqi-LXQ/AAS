@@ -1,10 +1,5 @@
 # 二课批量创建脚本
 
-> **TODO**
->
-> - 切换平台进行测试
-> - 说明chrome driver是否只使用于chrome浏览器
-
 这是一个关于中国科学技术大学[第二课堂](https://young.ustc.edu.cn/login/sc-wisdom-group-learning/)的子项目批量申请脚本，目的是解放劳苦的班级/社团负责人，那些每学期要花费数个小时进行子项目申请的打工人。
 
 这个脚本使用selenium驱动浏览器，实现了自动登陆并批量创建子项目，仅需提供信息，即可进行一键式创建。
@@ -43,9 +38,10 @@
 
 - python环境：安装好[python 3.8+](https://pypi.org/project/selenium/#supported-python-versions)，进入项目目录，安装依赖：`pip install -r requirements.txt`。
 
-- 浏览器驱动：[下载Chrome驱动](https://chromedriver.chromium.org/downloads)，选择匹配自己浏览器内核版本的
-
-  > 查看自己浏览器的内核版本，打开网址chrome://settings/help，看到类似Version 114.0.1823.67，即为内核版本
+- 浏览器配置
+  - 下载Chrome或者Chromium浏览器，这是因为[脚本代码使用的是Chrome驱动](https://github.com/lixiaoqi-LXQ/AAS/blob/master/src/AutoApply.py#L21C1-L22C56)
+  - [下载Chrome驱动](https://chromedriver.chromium.org/downloads)，选择匹配自己浏览器内核版本的
+    > 查看自己浏览器的内核版本：打开网址chrome://settings/help，看到类似Version 114.0.1823.67，即为内核版本
 
 - 根据[配置说明](#config)修改配置
 
